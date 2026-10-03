@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Chune Beauty Salon – ጩኒ የውበት ሳሎን | Hawassa, Ethiopia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chune Beauty Salon in Hawassa, Ethiopia. Expert hair braiding, knotless braids, cornrows, curls, styling, makeup and nail services. Located at Piazza, Hawassa.">
+    <meta name="keywords" content="beauty salon Hawassa, hair braiding Hawassa, ጩኒ የውበት ሳሎን, knotless braids Hawassa, cornrows Hawassa, Chune Beauty Salon, box braids Ethiopia">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Chune Beauty Salon – ጩኒ የውበት ሳሎን">
+    <meta property="og:description" content="Professional hair braiding, styling and beauty services for women in Hawassa, Ethiopia.">
+    <meta property="og:image" content="img/logo.png">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link href="img/logo.png" rel="icon" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Noto+Sans+Ethiopic:wght@400;600&family=Playfair+Display:wght@500&family=Work+Sans&display=swap" rel="stylesheet">
+
+    <!-- Icon Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Site Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Chune Beauty Salon",
+      "alternateName": "ጩኒ የውበት ሳሎን",
+      "description": "Women's beauty salon specialising in hair braiding, knotless braids, cornrows, curls, styling, makeup and nails in Hawassa, Ethiopia.",
+      "image": "img/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Piazza",
+        "addressLocality": "Hawassa",
+        "addressRegion": "Sidama",
+        "addressCountry": "ET"
+      },
+      "telephone": "+251996780723",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "20:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday"], "opens": "09:00", "closes": "18:00" }
+      ],
+      "priceRange": "ETB",
+      "url": "https://chunebeautysalon.com"
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Spinner -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width:3rem;height:3rem;" role="status">
+            <span class="visually-hidden">Loading…</span>
+        </div>
+    </div>
+
+    <!-- Topbar -->
+    <div class="topbar d-none d-md-block">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <i class="fa fa-map-marker-alt topbar-icon"></i>
+                    <span data-i18n="topbar_address">Piazza, Hawassa, Ethiopia</span>
+                    <span class="mx-3 text-white-50">|</span>
+                    <i class="fa fa-clock topbar-icon"></i>
+                    <span data-i18n="topbar_hours">Mon–Sat 8:00 AM – 8:00 PM &nbsp;|&nbsp; Sun 9:00 AM – 6:00 PM</span>
+                </div>
+                <div>
+                    <a href="tel:+251996780723"><i class="fa fa-phone-alt topbar-icon"></i>0996 780 723</a>
+                    <span class="mx-2 text-white-50">|</span>
+                    <a href="tel:+251954406883"><i class="fa fa-phone-alt topbar-icon"></i>0954 406 883</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="container-fluid bg-light sticky-top p-0">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+            <a href="index.html" class="navbar-brand logo-brand me-0" id="navbarBrand">
+                <img src="img/logo.png" alt="Chune Beauty Salon logo" class="navbar-logo"
+                     onerror="this.closest('.logo-brand').classList.add('logo-missing')">
+                <span class="navbar-brand-fallback">
+                    <span class="brand-en">Chune Beauty</span>
+                    <span class="brand-am">ጩኒ የውበት ሳሎን</span>
+                </span>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse p-3" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="index.html"   class="nav-item nav-link active"  data-i18n="nav_home">Home</a>
+                    <a href="about.html"   class="nav-item nav-link"         data-i18n="nav_about">About</a>
+                    <a href="service.html" class="nav-item nav-link"         data-i18n="nav_services">Services</a>
+                    <a href="price.html"   class="nav-item nav-link"         data-i18n="nav_price">Price</a>
+                    <a href="gallery.html" class="nav-item nav-link"         data-i18n="nav_gallery">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link"         data-i18n="nav_contact">Contact</a>
+                </div>
+                <div class="navbar-social-row">
+                    <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN | አማ</button>
+                    <a class="btn btn-primary btn-sm-square" href="https://www.tiktok.com/@FILL_IN_TIKTOK" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a class="btn btn-primary btn-sm-square" href="https://wa.me/251996780723" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a class="btn btn-primary btn-sm-square" href="https://t.me/FILL_IN_TELEGRAM" target="_blank" rel="noopener" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <div class="container-fluid p-0 hero-header bg-light mb-5">
+        <div class="container p-0">
+            <div class="row g-0 align-items-center">
+                <div class="col-12 col-lg-6 hero-header-text">
+                    <span class="amharic-title" data-i18n="hero_amharic">ጩኒ የውበት ሳሎን</span>
+                    <h1 class="font-dancing-script text-primary animated slideInLeft" data-i18n="hero_welcome">Welcome to</h1>
+                    <h1 class="display-1 mb-3 animated slideInLeft" data-i18n="hero_title">Chune Beauty Salon</h1>
+                    <p class="mb-4 animated slideInLeft" data-i18n="hero_subtitle">Expert braiding, hairstyling &amp; beauty care for women — right here in Hawassa, Piazza.</p>
+                    <div class="d-flex flex-wrap gap-3 animated slideInLeft">
+                        <a href="tel:+251996780723" class="btn btn-primary text-dark px-4 py-3">
+                            <i class="fa fa-phone me-2"></i><span data-i18n="hero_btn_call">Call Now</span>
+                        </a>
+                        <a href="https://wa.me/251996780723" target="_blank" rel="noopener" class="btn btn-whatsapp px-4 py-3">
+                            <i class="fab fa-whatsapp me-2"></i><span data-i18n="hero_btn_wa">Book on WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="owl-carousel header-carousel animated fadeIn">
+                        <img src="img/hero-slider-1.jpg" alt="Hair braiding at Chune Beauty Salon Hawassa">
+                        <img src="img/hero-slider-2.jpg" alt="Knotless braids styling at Chune Beauty Salon">
+                        <img src="img/hero-slider-3.jpg" alt="Beauty services at Chune Beauty Salon Hawassa">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-12 col-lg-6 wow fadeIn" data-wow-delay="0.2s">
+                    <img class="img-fluid mb-3 w-100" src="img/about.jpg" alt="Inside Chune Beauty Salon, Hawassa">
+                    <div class="about-phone-block">
+                        <div class="about-phone-icon">
+                            <i class="fa fa-phone fa-2x text-dark"></i>
+                        </div>
+                        <div class="px-3 py-2">
+                            <h4 class="mb-0"><a href="tel:+251996780723" class="text-dark">0996 780 723</a></h4>
+                            <span data-i18n="about_call_label">Call us to book your appointment</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="font-dancing-script text-primary" data-i18n="about_tagline">About Us</h1>
+                    <h1 class="mb-4" data-i18n="about_heading">Your Beauty, Our Passion</h1>
+                    <p class="mb-4" data-i18n="about_text">Chune Beauty Salon is a women's beauty destination located at the heart of Piazza, Hawassa. We specialise in hair braiding and styling — from box braids and knotless braids to cornrows, curls and everything in between — alongside makeup and nail services. Every client walks out feeling confident and beautiful.</p>
+                    <div class="row g-3 mb-5">
+                        <div class="col-4 col-sm-4">
+                            <div class="bg-light text-center p-3">
+                                <i class="fas fa-map-marker-alt fa-2x text-primary mb-2"></i>
+                                <p class="text-dark text-uppercase mb-0 small fw-bold" data-i18n="stat1">Hawassa, Piazza</p>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <div class="bg-light text-center p-3">
+                                <i class="fas fa-cut fa-2x text-primary mb-2"></i>
+                                <p class="text-dark text-uppercase mb-0 small fw-bold" data-i18n="stat2">Braids &amp; Styling</p>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <div class="bg-light text-center p-3">
+                                <i class="fas fa-calendar-check fa-2x text-primary mb-2"></i>
+                                <p class="text-dark text-uppercase mb-0 small fw-bold" data-i18n="stat3">Open 7 Days</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary text-dark text-uppercase px-5 py-3" href="about.html" data-i18n="about_btn">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <div class="container-fluid service py-5 bg-cream">
+        <div class="container">
+            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
+                <h1 class="font-dancing-script text-primary" data-i18n="services_tag">Our Services</h1>
+                <h1 class="mb-2" data-i18n="services_heading">What We Offer</h1>
+                <p class="text-muted mb-5 font-ethiopic" data-i18n="services_heading_am">የምናቀርባቸው አገልግሎቶች</p>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="service-item h-100 p-4 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="service-icon-wrap"><i class="fas fa-grip-lines"></i></div>
+                        <h3 class="mb-3" data-i18n="svc1_name">Box Braids</h3>
+                        <p class="mb-3" data-i18n="svc1_desc">Classic and protective box braids tailored to your preferred length, thickness and colour — long-lasting and low-maintenance.</p>
+                        <a class="btn btn-sm btn-primary text-dark text-uppercase" href="service.html" data-i18n="svc_more">See Details <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="service-item h-100 p-4 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="service-icon-wrap"><i class="fas fa-stream"></i></div>
+                        <h3 class="mb-3" data-i18n="svc2_name">Knotless Braids</h3>
+                        <p class="mb-3" data-i18n="svc2_desc">Lightweight and scalp-friendly knotless braids that look natural from root to tip. Ideal for all hair types.</p>
+                        <a class="btn btn-sm btn-primary text-dark text-uppercase" href="service.html" data-i18n="svc_more">See Details <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="service-item h-100 p-4 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="service-icon-wrap"><i class="fas fa-equals"></i></div>
+                        <h3 class="mb-3" data-i18n="svc3_name">Cornrows</h3>
+                        <p class="mb-3" data-i18n="svc3_desc">Neat, precise cornrows in straight, curved or geometric patterns. Simple straight-backs to elaborate feed-in designs.</p>
+                        <a class="btn btn-sm btn-primary text-dark text-uppercase my-2" href="service.html" data-i18n="svc_more">See Details <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="service-item h-100 p-4 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="service-icon-wrap"><i class="fas fa-circle-notch"></i></div>
+                        <h3 class="mb-3" data-i18n="svc4_name">Curls &amp; Styling</h3>
+                        <p class="mb-3" data-i18n="svc4_desc">From defined curls and twists to elegant updos and blowouts — we style your hair for any occasion.</p>
+                        <a class="btn btn-sm btn-primary text-dark text-uppercase" href="service.html" data-i18n="svc_more">See Details <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="service-item h-100 p-4 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="service-icon-wrap"><i class="fas fa-tint"></i></div>
+                        <h3 class="mb-3" data-i18n="svc5_name">Hair Wash &amp; Treatment</h3>
+                        <p class="mb-3" data-i18n="svc5_desc">Deep cleansing shampoo, conditioning treatments and scalp care to keep your natural hair healthy and vibrant.</p>
+                        <a class="btn btn-sm btn-primary text-dark text-uppercase" href="service.html" data-i18n="svc_more">See Details <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="service-item h-100 p-4 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="service-icon-wrap"><i class="fas fa-paint-brush"></i></div>
+                        <h3 class="mb-3" data-i18n="svc6_name">Makeup &amp; Nails</h3>
+                        <p class="mb-3" data-i18n="svc6_desc">Professional makeup for events, weddings and everyday glam, plus manicure and pedicure services.</p>
+                        <a class="btn btn-sm btn-primary text-dark text-uppercase" href="service.html" data-i18n="svc_more">See Details <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Preview -->
+    <div class="container-fluid price px-0 py-5">
+        <div class="row g-0">
+            <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center h-100 bg-primary price-panel-inner">
+                    <div class="wow fadeIn" data-wow-delay="0.3s">
+                        <h1 class="font-dancing-script text-white" data-i18n="price_tag">Pricing</h1>
+                        <h1 class="mb-0 text-dark" data-i18n="price_heading">Chune Beauty Salon</h1>
+                        <h1 class="price-display-heading text-uppercase mb-4 text-dark" data-i18n="price_sub">Prices</h1>
+                        <div class="bg-dark p-3 d-inline-block mb-4">
+                            <p class="text-white mb-1 small text-uppercase" data-i18n="price_currency_note">All prices in Ethiopian Birr (ETB)</p>
+                            <p class="text-primary mb-0 fw-bold font-ethiopic">ሁሉም ዋጋዎች በብር ናቸው</p>
+                        </div>
+                        <div>
+                            <a class="btn btn-dark px-4 py-2" href="price.html" data-i18n="price_btn">View Full Price List</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="h-100 bg-dark price-panel-inner">
+                    <div class="price-item mb-3 wow fadeIn" data-wow-delay="0.1s">
+                        <img class="img-fluid flex-shrink-0" src="img/price-1.jpg" alt="Box Braids">
+                        <div class="text-end px-4">
+                            <h6 class="text-uppercase text-primary" data-i18n="price1_name">Box Braids</h6>
+                            <h3 class="text-white font-work-sans mb-0" data-i18n="price1_val">ETB 500</h3>
+                        </div>
+                    </div>
+                    <div class="price-item mb-3 wow fadeIn" data-wow-delay="0.2s">
+                        <img class="img-fluid flex-shrink-0" src="img/price-2.jpg" alt="Knotless Braids">
+                        <div class="text-end px-4">
+                            <h6 class="text-uppercase text-primary" data-i18n="price2_name">Knotless Braids</h6>
+                            <h3 class="text-white font-work-sans mb-0" data-i18n="price2_val">ETB 700</h3>
+                        </div>
+                    </div>
+                    <div class="price-item mb-3 wow fadeIn" data-wow-delay="0.3s">
+                        <img class="img-fluid flex-shrink-0" src="img/price-3.jpg" alt="Cornrows">
+                        <div class="text-end px-4">
+                            <h6 class="text-uppercase text-primary" data-i18n="price3_name">Cornrows</h6>
+                            <h3 class="text-white font-work-sans mb-0" data-i18n="price3_val">ETB 300</h3>
+                        </div>
+                    </div>
+                    <div class="price-item mb-3 wow fadeIn" data-wow-delay="0.4s">
+                        <img class="img-fluid flex-shrink-0" src="img/price-4.jpg" alt="Curls and Styling">
+                        <div class="text-end px-4">
+                            <h6 class="text-uppercase text-primary" data-i18n="price4_name">Curls &amp; Styling</h6>
+                            <h3 class="text-white font-work-sans mb-0" data-i18n="price4_val">ETB 400</h3>
+                        </div>
+                    </div>
+                    <div class="price-item mb-3 wow fadeIn" data-wow-delay="0.5s">
+                        <img class="img-fluid flex-shrink-0" src="img/price-5.jpg" alt="Hair Wash and Treatment">
+                        <div class="text-end px-4">
+                            <h6 class="text-uppercase text-primary" data-i18n="price5_name">Hair Wash &amp; Treatment</h6>
+                            <h3 class="text-white font-work-sans mb-0" data-i18n="price5_val">ETB 250</h3>
+                        </div>
+                    </div>
+                    <div class="price-item mb-3 wow fadeIn" data-wow-delay="0.6s">
+                        <img class="img-fluid flex-shrink-0" src="img/price-6.jpg" alt="Makeup and Nails">
+                        <div class="text-end px-4">
+                            <h6 class="text-uppercase text-primary" data-i18n="price6_name">Makeup &amp; Nails</h6>
+                            <h3 class="text-white font-work-sans mb-0" data-i18n="price6_val">Call for price</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Preview -->
+    <div class="container-fluid gallery py-5">
+        <div class="container">
+            <div class="text-center wow fadeIn" data-wow-delay="0.2s">
+                <h1 class="font-dancing-script text-primary" data-i18n="gallery_tag">Gallery</h1>
+                <h1 class="mb-5" data-i18n="gallery_heading">Our Work</h1>
+            </div>
+            <div class="row g-2">
+                <div class="col-6 col-md-6 wow fadeIn" data-wow-delay="0.2s">
+                    <div class="gallery-item">
+                        <img src="img/gallery-1.jpg" loading="lazy" class="img-fluid w-100" alt="Box braids at Chune Beauty Salon Hawassa">
+                        <div class="gallery-icon">
+                            <a href="img/gallery-1.jpg" class="btn btn-primary btn-lg-square" data-lightbox="gallery" data-title="Box Braids – Chune Beauty Salon"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 wow fadeIn" data-wow-delay="0.4s">
+                    <div class="gallery-item">
+                        <img src="img/gallery-2.jpg" loading="lazy" class="img-fluid w-100" alt="Knotless braids at Chune Beauty Salon Hawassa">
+                        <div class="gallery-icon">
+                            <a href="img/gallery-2.jpg" class="btn btn-primary btn-lg-square" data-lightbox="gallery" data-title="Knotless Braids – Chune Beauty Salon"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 wow fadeIn" data-wow-delay="0.6s">
+                    <div class="gallery-item">
+                        <img src="img/gallery-3.jpg" loading="lazy" class="img-fluid w-100" alt="Cornrows at Chune Beauty Salon Hawassa">
+                        <div class="gallery-icon">
+                            <a href="img/gallery-3.jpg" class="btn btn-primary btn-lg-square" data-lightbox="gallery" data-title="Cornrows – Chune Beauty Salon"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 wow fadeIn" data-wow-delay="0.2s">
+                    <div class="gallery-item">
+                        <img src="img/gallery-4.jpg" loading="lazy" class="img-fluid w-100" alt="Curls and styling at Chune Beauty Salon">
+                        <div class="gallery-icon">
+                            <a href="img/gallery-4.jpg" class="btn btn-primary btn-lg-square" data-lightbox="gallery" data-title="Curls &amp; Styling – Chune Beauty Salon"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 wow fadeIn" data-wow-delay="0.4s">
+                    <div class="gallery-item">
+                        <img src="img/gallery-5.jpg" loading="lazy" class="img-fluid w-100" alt="Hair treatment at Chune Beauty Salon Hawassa">
+                        <div class="gallery-icon">
+                            <a href="img/gallery-5.jpg" class="btn btn-primary btn-lg-square" data-lightbox="gallery" data-title="Hair Treatment – Chune Beauty Salon"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 wow fadeIn" data-wow-delay="0.6s">
+                    <div class="gallery-item">
+                        <img src="img/gallery-6.jpg" loading="lazy" class="img-fluid w-100" alt="Makeup at Chune Beauty Salon Hawassa">
+                        <div class="gallery-icon">
+                            <a href="img/gallery-6.jpg" class="btn btn-primary btn-lg-square" data-lightbox="gallery" data-title="Makeup – Chune Beauty Salon"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="gallery.html" class="btn btn-primary text-dark text-uppercase px-5 py-3" data-i18n="gallery_btn">View Full Gallery</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TikTok Strip -->
+    <div class="tiktok-strip">
+        <div class="container text-center">
+            <div class="wow fadeIn" data-wow-delay="0.2s">
+                <div class="tiktok-logo mb-2"><i class="fab fa-tiktok"></i></div>
+                <h3 class="font-dancing-script" data-i18n="tiktok_heading">Follow Us on TikTok</h3>
+                <p data-i18n="tiktok_text">See our latest braiding styles, transformations and behind-the-scenes moments. New videos every week!</p>
+                <a href="https://www.tiktok.com/@FILL_IN_TIKTOK" target="_blank" rel="noopener" class="btn btn-tiktok px-5 py-3 text-uppercase fw-bold">
+                    <i class="fab fa-tiktok me-2"></i><span data-i18n="tiktok_btn">Follow @FILL_IN_TIKTOK</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid footer position-relative bg-dark text-white-50 py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 pe-lg-5">
+                    <a href="index.html" class="d-inline-block mb-3 footer-logo-wrap" id="footerBrand">
+                        <img src="img/logo.png" alt="Chune Beauty Salon" class="footer-logo"
+                             onerror="this.closest('.footer-logo-wrap').classList.add('logo-missing')">
+                        <span class="footer-brand-text">Chune Beauty Salon</span>
+                    </a>
+                    <p data-i18n="footer_desc">Professional hair braiding and beauty services for women in Hawassa, Ethiopia. Your beauty is our pride.</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-2 text-primary"></i>Piazza, Hawassa, Ethiopia</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-2 text-primary"></i><a href="tel:+251996780723" class="text-white-50">0996 780 723</a></p>
+                    <p class="mb-0"><i class="fa fa-phone-alt me-2 text-primary"></i><a href="tel:+251954406883" class="text-white-50">0954 406 883</a></p>
+                    <div class="d-flex justify-content-start mt-4 gap-2">
+                        <a class="btn btn-sm-square btn-primary" href="https://www.tiktok.com/@FILL_IN_TIKTOK" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a class="btn btn-sm-square btn-primary" href="https://wa.me/251996780723" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a class="btn btn-sm-square btn-primary" href="https://t.me/FILL_IN_TELEGRAM" target="_blank" rel="noopener" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a class="btn btn-sm-square btn-primary" href="https://www.facebook.com/FILL_IN_FACEBOOK" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-primary mb-4" data-i18n="footer_links">Quick Links</h5>
+                    <a class="btn btn-link" href="index.html"   data-i18n="nav_home">Home</a>
+                    <a class="btn btn-link" href="about.html"   data-i18n="nav_about">About</a>
+                    <a class="btn btn-link" href="service.html" data-i18n="nav_services">Services</a>
+                    <a class="btn btn-link" href="price.html"   data-i18n="nav_price">Price</a>
+                    <a class="btn btn-link" href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+                    <a class="btn btn-link" href="contact.html" data-i18n="nav_contact">Contact</a>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-primary mb-4" data-i18n="footer_hours_title">Opening Hours</h5>
+                    <table class="hours-table w-100">
+                        <tr><td data-i18n="hours_monsat">Mon – Sat</td><td>8:00 AM – 8:00 PM</td></tr>
+                        <tr><td data-i18n="hours_sun">Sunday</td><td>9:00 AM – 6:00 PM</td></tr>
+                    </table>
+                    <div class="mt-4">
+                        <a href="tel:+251996780723" class="btn btn-primary text-dark w-100 mb-2 ms-0 me-0">
+                            <i class="fa fa-phone me-2"></i>0996 780 723
+                        </a>
+                        <a href="https://wa.me/251996780723" target="_blank" rel="noopener" class="btn btn-whatsapp w-100 ms-0 me-0">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp / Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="container-fluid bg-dark text-white border-top border-secondary py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; 2026 <a class="border-bottom text-primary" href="index.html">Chune Beauty Salon</a>. All rights reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>.
+                    Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <a href="tel:+251996780723" class="fab-btn fab-call" aria-label="Call us">
+            <i class="fa fa-phone"></i>
+        </a>
+        <a href="https://wa.me/251996780723" target="_blank" rel="noopener" class="fab-btn fab-wa" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/i18n.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,871 @@
+/********** Chune Beauty Salon — Responsive CSS **********/
+
+/* ─────────────────────────────────────────────────────────
+   Brand tokens
+───────────────────────────────────────────────────────── */
+:root {
+    --bs-primary:     #C9A227;
+    --bs-primary-rgb: 201, 162, 39;
+    --chune-dark:     #1a1a1a;
+    --chune-cream:    #fdf6e3;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Global reset — prevent horizontal scroll
+───────────────────────────────────────────────────────── */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Smooth scroll
+───────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+/* ─────────────────────────────────────────────────────────
+   Amharic / Ethiopic font
+───────────────────────────────────────────────────────── */
+.font-ethiopic {
+    font-family: "Noto Sans Ethiopic", "Ethiopic", "Nyala", serif;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Typography helpers
+───────────────────────────────────────────────────────── */
+.font-work-sans {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+}
+.font-playfair-display {
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+}
+.font-dancing-script {
+    font-family: "Dancing Script", cursive;
+    font-weight: 400;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Fluid display headings
+   Replaces Bootstrap's fixed 5rem display-1 etc.
+   clamp(min, preferred, max)
+───────────────────────────────────────────────────────── */
+.display-1 { font-size: clamp(2rem, 7vw, 5rem) !important; }
+.display-2 { font-size: clamp(1.8rem, 6vw, 4.5rem) !important; }
+.display-3 { font-size: clamp(1.6rem, 5vw, 4rem) !important; }
+.display-5 { font-size: clamp(1.25rem, 4vw, 3rem) !important; }
+
+h1 { font-size: clamp(1.4rem, 4.5vw, 2.5rem); }
+h2 { font-size: clamp(1.25rem, 4vw, 2rem); }
+h3 { font-size: clamp(1.1rem, 3.5vw, 1.75rem); }
+h4 { font-size: clamp(1rem, 3vw, 1.5rem); }
+
+/* Body copy at least 16px */
+body { font-size: 1rem; line-height: 1.6; }
+
+/* Amharic text wraps on all screens */
+[data-i18n], .font-ethiopic {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Color utilities
+───────────────────────────────────────────────────────── */
+.text-primary   { color: var(--bs-primary) !important; }
+.bg-primary     { background-color: var(--bs-primary) !important; }
+.border-primary { border-color: var(--bs-primary) !important; }
+.bg-cream       { background-color: var(--chune-cream); }
+
+/* ─────────────────────────────────────────────────────────
+   Spinner
+───────────────────────────────────────────────────────── */
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+.spinner-grow.text-primary { color: var(--bs-primary) !important; }
+
+/* ─────────────────────────────────────────────────────────
+   Back-to-top
+───────────────────────────────────────────────────────── */
+.back-to-top {
+    position: fixed !important;
+    display: none;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99;
+    width: 44px;
+    height: 44px;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Buttons
+   KEY FIX: pseudo-elements that extend 10px beyond box
+   cause horizontal scroll on mobile → clip with overflow
+   on any container that hosts full-width buttons, AND
+   suppress the pseudos when buttons are edge-to-edge.
+───────────────────────────────────────────────────────── */
+.btn {
+    position: relative;
+    transition: .5s;
+    min-height: 44px;   /* touch target */
+}
+
+.btn-square  { width: 38px;  height: 38px; }
+.btn-sm-square { width: 32px; height: 32px; }
+.btn-lg-square { width: 48px; height: 48px; }
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    flex-shrink: 0;
+}
+
+/* Global margin reset — the 10px margin on every btn was
+   adding unexpected spacing and overflow in flex containers */
+.btn-dark,
+.btn-primary,
+.btn-whatsapp { margin: 0; }
+
+/* Override back only where original template needs spacing */
+.navbar .btn-primary { margin: 0 4px; }
+
+/* Primary button */
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color:     var(--bs-primary);
+    color: #1a1a1a;
+    font-weight: 600;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #a8851e !important;
+    border-color:     #a8851e !important;
+    color: #fff !important;
+}
+
+/* Decorative border pseudo-elements
+   Only show on desktop ≥ 768px to avoid horizontal overflow */
+.btn-primary::before,
+.btn-primary::after,
+.btn-dark::before,
+.btn-dark::after {
+    content: none;   /* hidden by default (mobile first) */
+}
+@media (min-width: 768px) {
+    .btn-primary::before,
+    .btn-primary::after {
+        position: absolute;
+        content: "";
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        top: -5px;
+        left: -5px;
+    }
+    .btn-primary::before {
+        top: -10px;
+        height: calc(100% + 20px);
+        border-left:  2px solid var(--bs-primary);
+        border-right: 2px solid var(--bs-primary);
+    }
+    .btn-primary::after {
+        left: -10px;
+        width: calc(100% + 20px);
+        border-top:    2px solid var(--bs-primary);
+        border-bottom: 2px solid var(--bs-primary);
+    }
+    .btn-dark::before,
+    .btn-dark::after {
+        position: absolute;
+        content: "";
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        top: -5px;
+        left: -5px;
+    }
+    .btn-dark::before {
+        top: -10px;
+        height: calc(100% + 20px);
+        border-left:  2px solid var(--bs-dark);
+        border-right: 2px solid var(--bs-dark);
+    }
+    .btn-dark::after {
+        left: -10px;
+        width: calc(100% + 20px);
+        border-top:    2px solid var(--bs-dark);
+        border-bottom: 2px solid var(--bs-dark);
+    }
+}
+
+/* WhatsApp button */
+.btn-whatsapp {
+    background-color: #25D366;
+    border-color:     #25D366;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    transition: .5s;
+}
+.btn-whatsapp:hover {
+    background-color: #1da851;
+    border-color:     #1da851;
+    color: #fff;
+}
+.btn-whatsapp::before,
+.btn-whatsapp::after { content: none; }
+@media (min-width: 768px) {
+    .btn-whatsapp::before,
+    .btn-whatsapp::after {
+        position: absolute;
+        content: "";
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        top: -5px;
+        left: -5px;
+    }
+    .btn-whatsapp::before {
+        top: -10px;
+        height: calc(100% + 20px);
+        border-left:  2px solid #25D366;
+        border-right: 2px solid #25D366;
+    }
+    .btn-whatsapp::after {
+        left: -10px;
+        width: calc(100% + 20px);
+        border-top:    2px solid #25D366;
+        border-bottom: 2px solid #25D366;
+    }
+}
+
+/* TikTok button — no pseudo borders ever */
+.btn-tiktok {
+    background: linear-gradient(135deg, #ff0050 0%, #00f2ea 100%);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    position: relative;
+    transition: .5s;
+}
+.btn-tiktok:hover { opacity: .85; color: #fff; }
+.btn-tiktok::before, .btn-tiktok::after { content: none !important; display: none !important; }
+
+/* ─────────────────────────────────────────────────────────
+   Topbar  (hidden on mobile via d-none d-md-block in HTML)
+───────────────────────────────────────────────────────── */
+.topbar {
+    background: var(--chune-dark);
+    padding: 8px 0;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.topbar a {
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+    transition: color .3s;
+}
+.topbar a:hover { color: var(--bs-primary); }
+.topbar .topbar-icon {
+    color: var(--bs-primary);
+    margin-right: 6px;
+}
+/* If topbar is visible on tablet, allow wrapping */
+@media (max-width: 991.98px) {
+    .topbar { white-space: normal; font-size: 12px; }
+    .topbar .d-flex { flex-wrap: wrap; gap: 4px; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Navbar
+───────────────────────────────────────────────────────── */
+.sticky-top {
+    top: -200px;
+    transition: .5s;
+}
+
+/* Navbar logo brand — scales with screen */
+a.navbar-brand.logo-brand {
+    background: var(--chune-dark);
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    min-width: 0;          /* allow shrink */
+    flex-shrink: 0;
+}
+.navbar-logo {
+    height: 48px;          /* mobile-first */
+    width: auto;
+    max-width: 120px;
+    display: block;
+    object-fit: contain;
+}
+@media (min-width: 768px) {
+    .navbar-logo { height: 60px; max-width: 160px; }
+    a.navbar-brand.logo-brand { padding: 8px 16px; }
+}
+@media (min-width: 992px) {
+    .navbar-logo { height: 68px; max-width: 180px; }
+}
+
+/* Fallback when logo.png missing */
+.navbar-brand-fallback {
+    display: none;
+    flex-direction: column;
+    line-height: 1.15;
+}
+.navbar-brand-fallback .brand-en {
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: var(--bs-primary);
+    font-weight: 700;
+    white-space: nowrap;
+}
+.navbar-brand-fallback .brand-am {
+    font-family: "Noto Sans Ethiopic", "Ethiopic", "Nyala", serif;
+    font-size: clamp(0.6rem, 2vw, 0.8rem);
+    color: rgba(255,255,255,0.8);
+    white-space: nowrap;
+}
+a.navbar-brand.logo-brand.logo-missing .navbar-logo         { display: none; }
+a.navbar-brand.logo-brand.logo-missing .navbar-brand-fallback { display: flex; }
+
+/* Nav links */
+.navbar .navbar-nav .nav-link {
+    margin: 0 8px;
+    padding: 10px 0;
+    outline: none;
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--chune-dark);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active { color: var(--bs-primary); }
+
+@media (min-width: 992px) {
+    .navbar .navbar-nav .nav-link {
+        margin: 0 10px;
+        font-size: 17px;
+    }
+}
+@media (min-width: 1200px) {
+    .navbar .navbar-nav .nav-link {
+        margin: 0 12px;
+        font-size: 18px;
+    }
+}
+
+/* Navbar social icon row inside collapse */
+.navbar-social-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 8px 0;
+}
+@media (min-width: 992px) {
+    .navbar-social-row { padding: 0; }
+}
+
+/* Navbar primary button (social icon squares) */
+.navbar .btn-primary {
+    border-width: 2px;
+    background: var(--bs-light);
+    color: var(--chune-dark);
+}
+.navbar .btn-primary:hover { background: var(--bs-primary); }
+/* Remove decorative pseudos from navbar icon buttons entirely */
+.navbar .btn-primary::before,
+.navbar .btn-primary::after { content: none !important; }
+
+/* Language toggle */
+.lang-toggle {
+    font-family: "Playfair Display", serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid var(--bs-primary);
+    border-radius: 4px;
+    padding: 4px 10px;
+    color: var(--bs-primary);
+    background: transparent;
+    transition: .3s;
+    white-space: nowrap;
+    min-height: 34px;
+    line-height: 1;
+}
+.lang-toggle:hover {
+    background: var(--bs-primary);
+    color: #1a1a1a;
+}
+
+/* Close nav on link tap (mobile) — handled in JS */
+
+/* ─────────────────────────────────────────────────────────
+   Hero Header
+───────────────────────────────────────────────────────── */
+.hero-header {
+    background: url(../img/hero-bg.jpg) top left no-repeat;
+    background-size: cover;
+    overflow: hidden;   /* contain WOW slideIn overflow */
+}
+
+/* Hero columns: stack on mobile, side-by-side on lg+ */
+.hero-header .row { align-items: stretch; }
+
+.hero-header-text {
+    padding: 2rem 1rem;  /* mobile default */
+}
+@media (min-width: 576px) {
+    .hero-header-text { padding: 2.5rem 1.5rem; }
+}
+@media (min-width: 992px) {
+    .hero-header .container { max-width: 100% !important; }
+    .hero-header-text {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        padding-left: calc(((100% - 960px) / 2) + .75rem);
+        padding-right: 2rem;
+    }
+}
+@media (min-width: 1200px) {
+    .hero-header-text { padding-left: calc(((100% - 1140px) / 2) + .75rem); }
+}
+@media (min-width: 1400px) {
+    .hero-header-text { padding-left: calc(((100% - 1320px) / 2) + .75rem); }
+}
+
+/* Amharic hero title */
+.hero-header .amharic-title {
+    font-family: "Noto Sans Ethiopic", "Ethiopic", "Nyala", serif;
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    font-weight: 600;
+    color: var(--bs-primary);
+    display: block;
+    margin-bottom: .5rem;
+    line-height: 1.3;
+    letter-spacing: .5px;
+}
+
+/* Hero carousel images — cover and sensible heights */
+.header-carousel { overflow: hidden; }
+.header-carousel .owl-item img {
+    width: 100%;
+    object-fit: cover;
+    height: 280px;      /* mobile */
+    display: block;
+}
+@media (min-width: 576px) {
+    .header-carousel .owl-item img { height: 340px; }
+}
+@media (min-width: 768px) {
+    .header-carousel .owl-item img { height: 420px; }
+}
+@media (min-width: 992px) {
+    .header-carousel .owl-item img { height: 100%; min-height: 500px; }
+}
+
+/* Hero carousel nav arrows */
+.header-carousel .owl-nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+}
+.header-carousel .owl-nav .owl-prev,
+.header-carousel .owl-nav .owl-next {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--chune-dark);
+    background: var(--bs-primary);
+    font-size: 20px;
+    transition: .5s;
+    margin-left: 2px;
+}
+.header-carousel .owl-nav .owl-prev:hover,
+.header-carousel .owl-nav .owl-next:hover { color: #fff; }
+
+/* ─────────────────────────────────────────────────────────
+   Page headers (inner pages)
+───────────────────────────────────────────────────────── */
+.page-header {
+    background: url(../img/page-header.jpg) center center no-repeat;
+    background-size: cover;
+    min-height: 160px;
+    overflow: hidden;
+}
+.page-header .container { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+@media (min-width: 768px) {
+    .page-header { min-height: 220px; }
+    .page-header .container { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+}
+/* Breadcrumb links */
+.breadcrumb-item a { color: var(--bs-primary); }
+
+/* ─────────────────────────────────────────────────────────
+   Services
+───────────────────────────────────────────────────────── */
+.service .service-item {
+    border: none !important;
+    box-shadow: 0 0 30px rgba(0,0,0,.06);
+    border-radius: 4px;
+}
+@media (min-width: 992px) {
+    .service .service-item {
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .service .service-item.border-lg-end    { border-right: 1px solid #dee2e6 !important; }
+    .service .service-item.border-lg-end-0  { border-right: none !important; }
+    .service .service-item.border-lg-bottom-0 { border-bottom: none !important; }
+}
+.service .service-item .btn-primary {
+    border-width: 2px;
+    background: #fff;
+}
+.service .service-item .btn-primary:hover { background: var(--bs-primary); }
+.service .service-item img { width: 70px; margin-bottom: 20px; max-width: 100%; }
+
+/* Service icon circles */
+.service-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--chune-cream);
+    border: 2px solid var(--bs-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 28px;
+    color: var(--bs-primary);
+    flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Pricing
+───────────────────────────────────────────────────────── */
+.price .price-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,.05);
+    flex-wrap: nowrap;
+    min-width: 0;
+}
+.price .price-item img {
+    max-width: 60px;
+    flex-shrink: 0;
+}
+
+/* Reduce p-5 padding on mobile for pricing panels */
+.price-panel-inner {
+    padding: 1.5rem;
+}
+@media (min-width: 768px) {
+    .price-panel-inner { padding: 2.5rem; }
+}
+@media (min-width: 992px) {
+    .price-panel-inner { padding: 3rem; }
+}
+
+/* Price heading 'Prices' — suppress huge letter-spacing on mobile */
+.price-display-heading {
+    letter-spacing: 0 !important;
+    font-size: clamp(1.8rem, 7vw, 5rem) !important;
+}
+@media (min-width: 576px) {
+    .price-display-heading { letter-spacing: 4px !important; }
+}
+@media (min-width: 992px) {
+    .price-display-heading { letter-spacing: 8px !important; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Gallery
+───────────────────────────────────────────────────────── */
+.gallery .gallery-item {
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+}
+@media (min-width: 576px) {
+    .gallery .gallery-item { min-height: 240px; }
+}
+@media (min-width: 768px) {
+    .gallery .gallery-item { min-height: 280px; }
+}
+.gallery .gallery-item img {
+    transition: .5s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.gallery .gallery-item:hover img { transform: scale(1.1); }
+.gallery .gallery-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.7);
+    transition: .5s;
+    z-index: 1;
+}
+.gallery .gallery-item:hover .gallery-icon { width: 100%; height: 100%; }
+.gallery .gallery-icon .btn { opacity: 0; transition: .5s; }
+.gallery .gallery-item:hover .gallery-icon .btn { opacity: 1; transition-delay: .3s; }
+
+/* 2-column gallery grid on mobile */
+.gallery-grid-mobile .col-mobile-half {
+    width: 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+/* ─────────────────────────────────────────────────────────
+   About section call-to-action phone block
+───────────────────────────────────────────────────────── */
+.about-phone-block {
+    display: flex;
+    align-items: center;
+    background: var(--bs-light);
+    flex-wrap: wrap;
+    gap: 0;
+}
+.about-phone-icon {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    background: var(--bs-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 576px) {
+    .about-phone-icon { width: 100px; height: 100px; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   TikTok Strip
+───────────────────────────────────────────────────────── */
+.tiktok-strip {
+    background: linear-gradient(135deg, #010101 0%, #1a1a1a 100%);
+    padding: 40px 16px;
+}
+.tiktok-strip .tiktok-logo { font-size: 2.2rem; color: #fff; }
+.tiktok-strip h3 { color: #fff; font-family: "Dancing Script", cursive; }
+.tiktok-strip p  { color: rgba(255,255,255,.75); margin: 0 auto; max-width: 540px; }
+
+/* ─────────────────────────────────────────────────────────
+   Footer
+───────────────────────────────────────────────────────── */
+@media (min-width: 992px) {
+    .footer::after {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        background: var(--bs-secondary);
+    }
+}
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: rgba(255,255,255,.5);
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+    min-height: 36px;
+    line-height: 1.4;
+}
+.footer .btn.btn-link:hover { color: var(--bs-primary); letter-spacing: 1px; box-shadow: none; }
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: rgba(255,255,255,.5);
+    margin-right: 10px;
+}
+/* Remove decorative pseudos from footer link buttons */
+.footer .btn.btn-link::after { content: none !important; }
+
+.footer-logo {
+    height: 60px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    display: block;
+}
+@media (min-width: 768px) {
+    .footer-logo { height: 70px; max-width: 180px; }
+}
+
+/* Footer logo fallback */
+.footer-logo-wrap { display: inline-block; min-height: 0; }
+.footer-logo-wrap.logo-missing .footer-logo       { display: none; }
+.footer-logo-wrap.logo-missing .footer-brand-text { display: block !important; }
+.footer-brand-text {
+    display: none;
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    color: var(--bs-primary);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Hours table in footer */
+.hours-table td {
+    padding: 4px 8px;
+    color: rgba(255,255,255,.75);
+    font-size: .9rem;
+}
+.hours-table td:first-child { color: var(--bs-primary); font-weight: 600; }
+
+/* ─────────────────────────────────────────────────────────
+   Contact cards
+───────────────────────────────────────────────────────── */
+.contact-card {
+    border-left: 4px solid var(--bs-primary);
+    background: #fff;
+    border-radius: 0 6px 6px 0;
+    padding: 16px 18px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.08);
+    margin-bottom: 16px;
+}
+.contact-card i { color: var(--bs-primary); font-size: 1.3rem; margin-right: 10px; }
+
+/* ─────────────────────────────────────────────────────────
+   Google Maps iframe — responsive height
+───────────────────────────────────────────────────────── */
+.map-responsive {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.map-responsive iframe {
+    display: block;
+    width: 100%;
+    height: 260px;
+    border: 0;
+}
+@media (min-width: 576px) {
+    .map-responsive iframe { height: 320px; }
+}
+@media (min-width: 992px) {
+    .map-responsive iframe { height: 420px; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Floating Action Buttons (Call + WhatsApp)
+   Stacked vertically at bottom-right, above back-to-top
+───────────────────────────────────────────────────────── */
+.fab-container {
+    position: fixed;
+    right: 16px;
+    bottom: 76px;       /* 20px (back-to-top bottom) + 44px (button) + 12px gap */
+    z-index: 98;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+.fab-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,.35);
+    transition: transform .3s, box-shadow .3s;
+    flex-shrink: 0;
+}
+.fab-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,.45);
+    color: #fff;
+}
+.fab-call { background: var(--bs-primary); }
+.fab-wa   { background: #25D366; }
+
+@media (min-width: 768px) {
+    .fab-container { right: 30px; bottom: 100px; }
+    .back-to-top   { right: 30px; bottom: 30px; }
+    .fab-btn       { width: 50px; height: 50px; }
+}
+@media (min-width: 1400px) {
+    .fab-container { right: 50px; }
+    .back-to-top   { right: 50px; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   WOW.js animation overflow guard
+   Wrap every major section in overflow:hidden so slideIn
+   animations don't temporarily widen the viewport.
+───────────────────────────────────────────────────────── */
+.hero-header,
+.container-fluid.service,
+.container-fluid.gallery,
+.container-fluid.price,
+.container-fluid.tiktok-strip,
+.container-fluid.footer,
+.page-header {
+    overflow: hidden;
+}
+
+/* Reduce motion on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+    .wow { visibility: visible !important; animation: none !important; }
+    .animated { animation-duration: 0s !important; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Utility: section padding reduction on mobile
+───────────────────────────────────────────────────────── */
+@media (max-width: 575.98px) {
+    .py-5 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+    .py-4 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+    .px-5 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    .p-5  { padding: 1.5rem !important; }
+    .p-4  { padding: 1rem !important; }
+    .g-5  { gap: 1.5rem !important; }
+}
